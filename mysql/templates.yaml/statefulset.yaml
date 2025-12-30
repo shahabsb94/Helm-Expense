@@ -6,14 +6,18 @@ metadata:
 spec:
   selector:
     matchLabels:
-      {{ toYaml .Values.commonLabels | nindent 4 }}    # has to match .spec.template.metadata.labels
-  serviceName: "nginx-headless"
+      app: mysql
+      project: expense
+      tier: db # has to match .spec.template.metadata.labels
+  serviceName: "mysql-headless"
   replicas: {{ .Values.statefulset.replicas }} # by default is 1
   minReadySeconds: 10 # by default is 0
   template:
     metadata:
       labels:
-        {{ toYaml .Values.commonLabels | nindent 4 }}   # has to match .spec.selector.matchLabels
+        app: mysql
+        project: expense
+        tier: db # has to match .spec.selector.matchLabels
     spec:
       terminationGracePeriodSeconds: 10
       containers:

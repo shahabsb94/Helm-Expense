@@ -2,15 +2,3 @@ statefulset:
   version: 1.0.0
   storage: 1Gi
   replicas: 3
-
-#namespace: expense
-
-commonLabels:
-    app: mysql
-    project: expense
-    tier: DB
-
-commonPorts:
-  - protocol: TCP
-    port: 3306 # service port
-    targetPort: 3306
