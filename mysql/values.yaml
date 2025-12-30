@@ -3,7 +3,7 @@ statefulset:
   storage: 1Gi
   replicas: 3
 
-namespace: expense
+#namespace: expense
 
 commonLabels:
     app: mysql

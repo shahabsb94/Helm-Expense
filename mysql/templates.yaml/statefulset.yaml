@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mysql
-  namespace: {{ .Values.namespace }} 
+  namespace: expense
 spec:
   selector:
     matchLabels:
@@ -26,7 +26,7 @@ spec:
   volumeClaimTemplates:
   - metadata:
       name: mysql
-      namespace: {{ .Values.namespace }} 
+      namespace: expense
     spec:
       accessModes: [ "ReadWriteOnce" ]
       storageClassName: "ebs-sc"
